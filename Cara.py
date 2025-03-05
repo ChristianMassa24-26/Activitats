@@ -5,32 +5,51 @@ AMPLE = 1000
 ALT = 1000
 TAMANY = (AMPLE,ALT)
 
-ACER = (172,178,180) # Color acero
-NEGRE = (0,0,0)
-VERMELL = (255,0,0,0)
-BLANC = (255,255,255)
-BLAU = (0,0,255)
-VERD = (0,255,0)
-GROC = (255,255,0)
+NOM_FINESTRA = "Dibuix"
+TAMANY = (AMPLE,ALT)
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLUE = (0,0,255)
+BLUE_DORAEMON = (0,161,254)
+INDIGO = (75, 0, 130)
+ORANGE = (255, 165, 0)
+YELLOW = (255,255,0)
+VIOLET = (148,0,211)
+GREY = (128,128,128)
+MARRON = (128,0,0)
+BLACK = (0,0,0)
+OLIVE = (134,139,73)
+CYAN = (0,255,255)
+PINK = (255,153,204)
+MAGENTA = (255,0,255)
+TAN = (210,180,140)
+TEAL = (0,128,128)
+WHITE = (255,255,255)
 
 pygame.init()
 font = pygame.font.SysFont(None,280)
-img = font.render("STOP", True, BLANC)
+img = font.render("STOP", True, WHITE)
 
 pantalla = pygame.display.set_mode(TAMANY)
-pygame.display.set_caption('SENYAL DE STOP')
+pygame.display.set_caption(NOM_FINESTRA)
 while True: # main game loop
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
 
-    pantalla.fill(BLANC)
-    rectangle1 = pygame.Rect(400, 600, 200, 400)
-    pygame.draw.rect(pantalla, ACER, rectangle1)
-    pygame.draw.polygon(pantalla, VERMELL, ((355,150),(645,150),(850,355),(850,645),(645,850),(355,850),(150,645),(150,355),(355,150)))
-    pygame.draw.polygon(pantalla, BLANC, ((365,160),(635,160),(840,365),(840,635),(635,840),(365,840),(160,635),(160,365),(365,160)))
-    pygame.draw.polygon(pantalla, VERMELL, ((375, 170), (625, 170), (830, 375), (830, 625), (625, 830), (375, 830), (170, 625), (170, 375), (375, 170)))
-    pantalla.blit(img, (250, 410)) # TEXTO "STOP"
+    pantalla.fill(WHITE)
+    pygame.draw.circle(pantalla,BLUE_DORAEMON, (500,500),200)
+    pygame.draw.ellipse(pantalla, BLUE_DORAEMON, (350, 400, 300, 300))
+    pygame.draw.circle(pantalla, WHITE, (500,550), 150)
+    pygame.draw.circle(pantalla, WHITE, (450, 480), 30)
+    pygame.draw.circle(pantalla, WHITE, (550, 480), 30)
+    pygame.draw.circle(pantalla, BLUE_DORAEMON, (450, 480), 15)
+    pygame.draw.circle(pantalla, BLUE_DORAEMON, (550, 480), 15)
+    pygame.draw.circle(pantalla, RED, (500, 530), 20)
+    pygame.draw.rect(pantalla, WHITE, (450, 550, 100, 30))
+    pygame.draw.rect(pantalla, WHITE, (460, 560, 80, 10))
+    pygame.draw.rect(pantalla, RED, (400, 650, 200, 30))
+    pygame.draw.rect(pantalla, YELLOW, (420, 660, 160, 10))
 
     pygame.display.update()
